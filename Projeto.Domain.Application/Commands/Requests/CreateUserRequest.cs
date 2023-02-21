@@ -1,10 +1,10 @@
-﻿using Projeto.Domain.Enums;
+﻿using MediatR;
+using Projeto.Domain.Application.Commands.Responses;
 
-namespace Projeto.Domain.Entities
+namespace Projeto.Domain.Application.Commands.Requests
 {
-    public class UserEntity
+    public class CreateUserRequest : IRequest<CreateUserResponse>
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
@@ -13,8 +13,5 @@ namespace Projeto.Domain.Entities
         public string MotherName { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime BirthDate { get; set; }
-        public DateTime InclusionDate { get; set; }
-        public DateTime AlterationDate { get; set; }
-        public EnumStatus Status { get; set; }
     }
 }

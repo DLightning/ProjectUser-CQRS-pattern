@@ -1,6 +1,6 @@
 ﻿using Projeto.Domain.Entities;
 using Projeto.Domain.Infra.Contexts;
-using Projeto.Domain.Repositories;
+using Projeto.Domain.Interfaces.Repositories;
 
 namespace Projeto.Domain.Infra.Repositories
 {
@@ -13,9 +13,33 @@ namespace Projeto.Domain.Infra.Repositories
             _context = context;
         }
 
-        public IEnumerable<UserEntity> GetAll()
+        public UserEntity AddUser(UserEntity user)
         {
-            return _context.Users.ToList();
+            _context.Users.Add(user);
+            _context.SaveChanges();
+            return user;
+        }
+
+        public IQueryable<UserEntity> GetAll()
+        {
+            return _context.Users;
+        }
+
+        public UserEntity GetUser(Guid id)
+        {
+            return _context.Users.Find(id);
+        }
+
+        public UserEntity UpdateUser(UserEntity user)
+        {
+            _context.Users.Update(user);
+            _context.SaveChanges();
+            return user;
+        }
+        public void DeleteUser(UserEntity user) {
+        
+            _context.Users.Remove(user);
+            _context.SaveChanges();
         }
     }
 }

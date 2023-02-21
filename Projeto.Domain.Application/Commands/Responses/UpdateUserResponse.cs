@@ -1,8 +1,12 @@
-﻿using Projeto.Domain.Enums;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Projeto.Domain.Entities
+namespace Projeto.Domain.Application.Commands.Responses
 {
-    public class UserEntity
+    public class UpdateUserResponse
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
@@ -13,8 +17,10 @@ namespace Projeto.Domain.Entities
         public string MotherName { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime BirthDate { get; set; }
-        public DateTime InclusionDate { get; set; }
-        public DateTime AlterationDate { get; set; }
-        public EnumStatus Status { get; set; }
+
+        public UpdateUserResponse()
+        {
+
+        }
     }
 }
